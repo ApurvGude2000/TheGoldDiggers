@@ -1071,7 +1071,7 @@ async def generate_accessibility_report_pdf(request: Request):
         template = env.from_string(REPORT_TEMPLATE)
         html_str = template.render(
             report=report_obj,
-            generated_at=datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
+            generated_at=datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC"),
             site_name=payload.site_name or "",
             scanned_url=payload.scanned_url or "",
             generated_for=payload.generated_for or ""
