@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AccessGuru</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🧠 AccessGuru</h1>
+      <p class="subtitle">ML-Powered Accessibility Testing</p>
+    </div>
+
+    <!-- Initial Controls -->
+    <div id="controls">
+      <button id="runTest" class="btn btn-primary">
+        Run Accessibility Test
+      </button>
+      <p class="hint">Click to analyze the current page for accessibility violations</p>
+    </div>
+
+    <!-- Loading Status -->
+    <div id="status" class="hidden">
+      <div class="spinner"></div>
+      <p id="statusText">Analyzing page...</p>
+    </div>
+
+    <!-- Error Display -->
+    <div id="error" class="hidden error-box">
+      <h3>⚠️ Error</h3>
+      <p id="errorMessage"></p>
+    </div>
+
+    <!-- Results Display -->
+    <div id="results" class="hidden">
+      <!-- Summary Section -->
+      <div class="summary-section">
+        <div class="score-display">
+          <div class="score-circle">
+            <span id="overallScore" class="score-number">0</span>
+            <span class="score-label">/100</span>
+          </div>
+          <p id="scoreInterpretation" class="score-interpretation"></p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="totalViolations">0</div>
+            <div class="stat-label">Total Violations</div>
+          </div>
+          <div class="stat-card critical">
+            <div class="stat-value" id="criticalCount">0</div>
+            <div class="stat-label">Critical</div>
+          </div>
+          <div class="stat-card serious">
+            <div class="stat-value" id="seriousCount">0</div>
+            <div class="stat-label">Serious</div>
+          </div>
+          <div class="stat-card moderate">
+            <div class="stat-value" id="moderateCount">0</div>
+            <div class="stat-label">Moderate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ML Insights Section -->
+      <div class="section">
+        <h2 class="section-title">🧠 ML Insights</h2>
+        <div id="mlInsightsList" class="insights-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button id="openSidebarBtn" class="btn btn-primary">
+          📋 View All Violations
+        </button>
+        <button id="exportReport" class="btn btn-secondary">
+          📄 Export Report
+        </button>
+        <button id="runAgain" class="btn btn-secondary">
+          🔄 Run Again
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
